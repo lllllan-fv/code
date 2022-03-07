@@ -2,6 +2,7 @@ package cn.lllllan.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,29 +18,31 @@ public class Video implements Serializable {
 
     private int price;
 
+    @JsonProperty("cover_img")
     private String coverImg;
 
+    @JsonProperty("creat_time")
     @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss", locale = "zh", timezone = "GNT+8")
-    private Date date;
+    private Date createTime;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<Chapter> chapterList;
 
     public Video() {
-        this.date = new Date();
+        this.createTime = new Date();
     }
 
     public Video(int id, String title) {
         this.id = id;
         this.title = title;
-        this.date = new Date();
+        this.createTime = new Date();
     }
 
     public Video(int id, String title, List<Chapter> chapterList) {
         this.id = id;
         this.title = title;
         this.chapterList = chapterList;
-        this.date = new Date();
+        this.createTime = new Date();
     }
 
     public int getId() {
@@ -82,12 +85,12 @@ public class Video implements Serializable {
         this.coverImg = coverImg;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public List<Chapter> getChapterList() {
@@ -106,7 +109,7 @@ public class Video implements Serializable {
                 ", summary='" + summary + '\'' +
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
-                ", date=" + date +
+                ", date=" + createTime +
                 ", chapterList=" + chapterList +
                 '}';
     }
