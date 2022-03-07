@@ -1,37 +1,42 @@
 package cn.lllllan.demo;
 
-import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.Before;
+import cn.lllllan.demo.service.VideoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.nio.charset.Charset;
+
+@AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {DemoApplication.class})
 public class VideoTest {
 
-    @Before
-    public void testBefore() {
-        System.out.println("Before");
-    }
+    @Autowired
+    private VideoService videoService;
+
+    //  单元测试，对http请求进行模拟
+    @Autowired
+    private MockMvc mockMvc;
 
     @Test
-    public void testTest1() {
-        System.out.println("Test1");
+    public void testVideoListApi() throws Exception {
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/pub/video/list"))
+                .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 
-// 断言 1和3 是否相等
-        TestCase.assertEquals(1, 3);
+        int status = mvcResult.getResponse().getStatus();
+        System.out.println(status);
+
+        String contentAsString = mvcResult.getResponse().
+                getContentAsString(Charset.defaultCharset()); // 防止中文乱码
+        System.out.println(contentAsString);
     }
 
-    @Test
-    public void testTest2() {
-        System.out.println("Test2");
-    }
-
-    @After
-    public void testAfter() {
-        System.out.println("After");
-    }
 }
