@@ -18,7 +18,7 @@ public class UserController {
 
     @PostMapping("login")
     public Object login(String userName, String pwd) {
-        return userService.login(userName, pwd);
+        return userService.login(userName, pwd) ? JsonData.buildSuccess(null) : JsonData.buildError("账号密码错误");
     }
 
     @PostMapping("userLogin")
