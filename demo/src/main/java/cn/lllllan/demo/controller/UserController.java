@@ -19,12 +19,13 @@ public class UserController {
     }
 
     @PostMapping("userLogin")
-    public Object userLogin(@RequestBody User user) {
-        return JsonData.buildSuccess(user);
+    public JsonData userLogin(@RequestBody User user) {
+        return userService.login(user.getUserName(), user.getPwd()) ? JsonData.buildSuccess(user) : JsonData.buildError(null);
     }
 
     @GetMapping("list")
     public JsonData list() {
         return JsonData.buildSuccess(userService.listUser());
     }
+
 }
