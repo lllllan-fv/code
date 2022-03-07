@@ -2,6 +2,7 @@ package cn.lllllan.demo.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Video implements Serializable {
 
@@ -17,6 +18,8 @@ public class Video implements Serializable {
 
     private Date date;
 
+    private List<Chapter> chapterList;
+
     public Video() {
     }
 
@@ -24,6 +27,12 @@ public class Video implements Serializable {
         this.id = id;
         this.title = title;
         this.date = new Date();
+    }
+
+    public Video(int id, String title, List<Chapter> chapterList) {
+        this.id = id;
+        this.title = title;
+        this.chapterList = chapterList;
     }
 
     public int getId() {
@@ -74,6 +83,14 @@ public class Video implements Serializable {
         this.date = date;
     }
 
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
+
     @Override
     public String toString() {
         return "Video{" +
@@ -83,6 +100,7 @@ public class Video implements Serializable {
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
                 ", date=" + date +
+                ", chapterList=" + chapterList +
                 '}';
     }
 }
