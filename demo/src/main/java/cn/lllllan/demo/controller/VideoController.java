@@ -15,7 +15,6 @@ public class VideoController {
 
     @GetMapping("list")
     public Object listVideo() {
-        System.out.println(3);
         return JsonData.buildSuccess(videoService.listVideo());
     }
 
