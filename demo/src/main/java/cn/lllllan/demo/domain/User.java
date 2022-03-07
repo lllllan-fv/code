@@ -1,11 +1,13 @@
 package cn.lllllan.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
 
     private int id;
 
+    @JsonProperty("user_name")
     private String userName;
 
     @JsonIgnore

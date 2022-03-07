@@ -15,12 +15,14 @@ public class UserController {
 
     @PostMapping("login")
     public Object login(String userName, String pwd) {
-        return userService.login(userName, pwd) ? JsonData.buildSuccess(null) : JsonData.buildError("账号密码错误");
+        String token = userService.login(userName, pwd);
+        return token != null ? JsonData.buildSuccess(null) : JsonData.buildError("账号密码错误");
     }
 
     @PostMapping("userLogin")
     public JsonData userLogin(@RequestBody User user) {
-        return userService.login(user.getUserName(), user.getPwd()) ? JsonData.buildSuccess(user) : JsonData.buildError(null);
+        String token = userService.login(user.getUserName(), user.getPwd());
+        return token != null ? JsonData.buildSuccess(user) : JsonData.buildError(null);
     }
 
     @GetMapping("list")

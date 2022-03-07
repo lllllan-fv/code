@@ -15,13 +15,12 @@ public class UserMapper {
 
     static {
         userMap.put("TheShy", new User(1, "TheShy", "123"));
-        userMap.put("Rookie", new User(1, "Rookie", "123"));
-        userMap.put("Ning", new User(1, "Ning", "123"));
+        userMap.put("Rookie", new User(2, "Rookie", "123"));
+        userMap.put("Ning", new User(3, "Ning", "123"));
     }
 
-    public Boolean login(String userName, String pwd) {
-        User user = userMap.get(userName);
-        return user != null && user.getPwd().equals(pwd);
+    public User login(String userName, String pwd) {
+        return userMap.get(userName);
     }
 
     public List<User> listUser() {
