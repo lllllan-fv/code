@@ -1,5 +1,6 @@
 package cn.lllllan.demo;
 
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,6 +20,9 @@ public class VideoTest {
     @Test
     public void testTest1() {
         System.out.println("Test1");
+
+// 断言 1和3 是否相等
+        TestCase.assertEquals(1, 3);
     }
 
     @Test
