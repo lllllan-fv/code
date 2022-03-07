@@ -13,7 +13,7 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
-    @GetMapping("listVideo")
+    @GetMapping("list")
     public Object listVideo() {
         return JsonData.buildSuccess(videoService.listVideo());
     }

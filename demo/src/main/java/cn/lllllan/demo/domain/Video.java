@@ -1,5 +1,7 @@
 package cn.lllllan.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -16,11 +18,13 @@ public class Video implements Serializable {
 
     private String coverImg;
 
+    @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss", locale = "zh", timezone = "GNT+8")
     private Date date;
 
     private List<Chapter> chapterList;
 
     public Video() {
+        this.date = new Date();
     }
 
     public Video(int id, String title) {
@@ -33,6 +37,7 @@ public class Video implements Serializable {
         this.id = id;
         this.title = title;
         this.chapterList = chapterList;
+        this.date = new Date();
     }
 
     public int getId() {
