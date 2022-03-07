@@ -3,7 +3,9 @@ package cn.lllllan.demo.mapper;
 import cn.lllllan.demo.domain.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -20,5 +22,9 @@ public class UserMapper {
     public Boolean login(String userName, String pwd) {
         User user = userMap.get(userName);
         return user != null && user.getPwd().equals(pwd);
+    }
+
+    public List<User> listUser() {
+        return new ArrayList<User>(userMap.values());
     }
 }

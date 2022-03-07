@@ -1,11 +1,14 @@
 package cn.lllllan.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
 
     private int id;
 
     private String userName;
 
+    @JsonIgnore
     private String pwd;
 
     public User() {
