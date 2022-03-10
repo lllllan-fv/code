@@ -20,6 +20,9 @@ public class UserMapper {
     }
 
     public User login(String userName, String pwd) {
+        System.out.println("userName = " + userName);
+        User user = userMap.get(userName);
+        System.out.println(user == null ? "user = null" : user.getUserName());
         return userMap.get(userName);
     }
 
