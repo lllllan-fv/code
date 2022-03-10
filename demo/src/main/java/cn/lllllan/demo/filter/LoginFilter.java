@@ -7,13 +7,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebFilter(urlPatterns = "/api/v1/pri/*", filterName = "LoginFilter")
+//@WebFilter(urlPatterns = "/api/v1/pri/*", filterName = "LoginFilter")
 public class LoginFilter implements Filter {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
