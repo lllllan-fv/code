@@ -1,7 +1,10 @@
 package cn.lllllan.demo.task;
 
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.Future;
 
 @Component
 @Async
@@ -32,5 +35,23 @@ public class AsyncTask {
             e.printStackTrace();
         }
         System.out.println("task3");
+    }
+
+    public Future<String> task4() {
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new AsyncResult<String>("任务4");
+    }
+
+    public Future<String> task5() {
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new AsyncResult<String>("任务5");
     }
 }
