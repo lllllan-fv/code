@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class SqlSessionDemo {
 
@@ -31,9 +32,9 @@ public class SqlSessionDemo {
 
             System.out.println(video.toString());
 
-//            List<Video> videoList = videoMapper.selectList();
-//
-//            System.out.println(videoList.toString());
+            List<Video> videoList = videoMapper.selectList();
+
+            System.out.println(videoList.toString());
         }
 
     }
