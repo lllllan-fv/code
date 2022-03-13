@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
+import java.util.Date;
 
 public class SqlSessionDemo {
 
@@ -27,14 +27,28 @@ public class SqlSessionDemo {
         try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 
             VideoMapper videoMapper = sqlSession.getMapper(VideoMapper.class);
+//
+//            Video video = videoMapper.selectById(44);
+//
+//            System.out.println(video.toString());
+//
+//            List<Video> videoList = videoMapper.selectList();
+//
+//            System.out.println(videoList.toString());
 
-            Video video = videoMapper.selectById(44);
+            Video video1 = new Video();
+            video1.setTitle("小滴课堂面试专题900道");
+            video1.setCoverImg("xdclass.net/aaa.png");
+            video1.setPoint(9.4);
+            video1.setCreateTime(new Date());
+            video1.setPrice(9900);
+            video1.setSummary("这个是面试专题概要");
 
-            System.out.println(video.toString());
+            int rows = videoMapper.add(video1);
 
-            List<Video> videoList = videoMapper.selectList();
+            System.out.println(rows);
 
-            System.out.println(videoList.toString());
+            System.out.println(video1.toString());
         }
 
     }

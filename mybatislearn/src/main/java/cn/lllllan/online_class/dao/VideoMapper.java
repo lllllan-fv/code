@@ -23,4 +23,6 @@ public interface VideoMapper {
      */
     @Select("select * from video")
     List<Video> selectList();
+
+    int add(Video video);
 }
