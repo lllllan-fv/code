@@ -25,4 +25,6 @@ public interface VideoMapper {
     List<Video> selectList();
 
     int add(Video video);
+
+    int addBatch(List<Video> list);
 }

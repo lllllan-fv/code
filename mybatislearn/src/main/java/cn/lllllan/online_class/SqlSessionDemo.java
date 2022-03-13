@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SqlSessionDemo {
 
@@ -44,11 +46,23 @@ public class SqlSessionDemo {
             video1.setPrice(9900);
             video1.setSummary("这个是面试专题概要");
 
-            int rows = videoMapper.add(video1);
+            Video video2 = new Video();
+            video2.setTitle("小滴课堂面试专题900道");
+            video2.setCoverImg("xdclass.net/aaa.png");
+            video2.setPoint(9.4);
+            video2.setCreateTime(new Date());
+            video2.setPrice(9900);
+            video2.setSummary("这个是面试专题概要");
 
-            System.out.println(rows);
+//            int rows = videoMapper.add(video1);
+//            System.out.println(rows);
 
-            System.out.println(video1.toString());
+            List<Video> list = new LinkedList<>();
+            list.add(video1);
+            list.add(video2);
+            int i = videoMapper.addBatch(list);
+
+            System.out.println(i);
         }
 
     }
