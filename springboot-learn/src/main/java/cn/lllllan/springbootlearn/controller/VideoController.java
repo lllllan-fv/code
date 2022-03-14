@@ -6,6 +6,7 @@ import cn.lllllan.springbootlearn.service.VideoService;
 import cn.lllllan.springbootlearn.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -37,5 +38,11 @@ public class VideoController {
     public Object listBanner() {
         List<VideoBanner> videoBanners = videoService.listBanner();
         return JsonData.buildSuccess(videoBanners);
+    }
+
+    @RequestMapping("find_detail_by_id")
+    public Object findDetailById(@RequestParam(value = "video_id", required = true) int videoId) {
+        Video detailById = videoService.findDetailById(videoId);
+        return JsonData.buildSuccess(detailById);
     }
 }

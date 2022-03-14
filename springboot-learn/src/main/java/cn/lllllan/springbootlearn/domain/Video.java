@@ -1,6 +1,7 @@
 package cn.lllllan.springbootlearn.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 视频
@@ -20,6 +21,8 @@ public class Video {
 
     private Double point;
 
+    private List<Chapter> chapterList;
+
     @Override
     public String toString() {
         return "Video{" +
@@ -30,7 +33,16 @@ public class Video {
                 ", price=" + price +
                 ", createTime=" + createTime +
                 ", point=" + point +
+                ", chapterList=" + chapterList +
                 '}';
+    }
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
     }
 
     public Integer getId() {

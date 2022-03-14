@@ -1,6 +1,7 @@
 package cn.lllllan.springbootlearn.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 章节
@@ -12,9 +13,11 @@ public class Chapter {
 
     private String title;
 
-    private Integer orderId;
+    private Integer ordered;
 
     private Date createTime;
+
+    private List<Episode> episodeList;
 
     @Override
     public String toString() {
@@ -22,9 +25,18 @@ public class Chapter {
                 "id=" + id +
                 ", videoId=" + videoId +
                 ", title='" + title + '\'' +
-                ", orderId=" + orderId +
+                ", ordered=" + ordered +
                 ", createTime=" + createTime +
+                ", episodeList=" + episodeList +
                 '}';
+    }
+
+    public List<Episode> getEpisodeList() {
+        return episodeList;
+    }
+
+    public void setEpisodeList(List<Episode> episodeList) {
+        this.episodeList = episodeList;
     }
 
     public Integer getId() {
@@ -51,12 +63,12 @@ public class Chapter {
         this.title = title;
     }
 
-    public Integer getOrderId() {
-        return orderId;
+    public Integer getOrdered() {
+        return ordered;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setOrdered(Integer ordered) {
+        this.ordered = ordered;
     }
 
     public Date getCreateTime() {

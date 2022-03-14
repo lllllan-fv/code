@@ -24,4 +24,9 @@ public class VideoServiceImpl implements VideoService {
     public List<VideoBanner> listBanner() {
         return videoMapper.listBanner();
     }
+
+    @Override
+    public Video findDetailById(int videoId) {
+        return videoMapper.findDetailById(videoId);
+    }
 }
