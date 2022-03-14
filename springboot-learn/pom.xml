@@ -80,6 +80,13 @@
         </dependency>
         <!--====================================================-->
 
+        <!--========================热部署=======================-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--====================================================-->
     </dependencies>
 
     <build>
@@ -88,6 +95,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!--========================热部署=======================-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork><!--必须添加这个配置-->
+                </configuration>
+            </plugin>
+            <!--=====================================================-->
         </plugins>
     </build>
 

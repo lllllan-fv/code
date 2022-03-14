@@ -19,6 +19,6 @@ public class VideoController {
     @RequestMapping("list")
     public Object listVideo() {
         List<Video> videos = videoService.listVideo();
-        return JsonData.buildSuccess(videos);
+        return JsonData.buildSuccess(videos, "启动热部署");
     }
 }
