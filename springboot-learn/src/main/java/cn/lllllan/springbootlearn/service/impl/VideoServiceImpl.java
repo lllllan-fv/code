@@ -1,6 +1,7 @@
 package cn.lllllan.springbootlearn.service.impl;
 
 import cn.lllllan.springbootlearn.domain.Video;
+import cn.lllllan.springbootlearn.domain.VideoBanner;
 import cn.lllllan.springbootlearn.mapper.VideoMapper;
 import cn.lllllan.springbootlearn.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,10 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public List<Video> listVideo() {
         return videoMapper.listVideo();
+    }
+
+    @Override
+    public List<VideoBanner> listBanner() {
+        return videoMapper.listBanner();
     }
 }

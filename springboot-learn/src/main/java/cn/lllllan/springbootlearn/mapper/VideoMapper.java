@@ -1,6 +1,7 @@
 package cn.lllllan.springbootlearn.mapper;
 
 import cn.lllllan.springbootlearn.domain.Video;
+import cn.lllllan.springbootlearn.domain.VideoBanner;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface VideoMapper {
      * @return
      */
     List<Video> listVideo();
+
+    List<VideoBanner> listBanner();
 }

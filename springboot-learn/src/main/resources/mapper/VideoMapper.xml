@@ -6,4 +6,8 @@
         select * from video;
     </select>
 
+    <select id="listBanner" resultType="VideoBanner">
+        select * from video_banner order by weight desc;
+    </select>
+
 </mapper>
