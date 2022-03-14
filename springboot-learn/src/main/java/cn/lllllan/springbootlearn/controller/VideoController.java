@@ -37,6 +37,9 @@ public class VideoController {
     @RequestMapping("list_banner")
     public Object listBanner() {
         List<VideoBanner> videoBanners = videoService.listBanner();
+
+        int i = 1 / 0;
+
         return JsonData.buildSuccess(videoBanners);
     }
 
