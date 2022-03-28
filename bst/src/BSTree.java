@@ -21,7 +21,15 @@ public class BSTree<T extends Comparable<T>> {
     }
 
     public BSTNode<T> search(BSTNode<T> node, T value) {
-        return null;
+        if (root == null || value == null) return null;
+        int cmp = value.compareTo(node.value);
+        if (cmp == 0) {
+            return node;
+        } else if (cmp < 0) {
+            return search(node.left, value);
+        } else {
+            return search(node.right, value);
+        }
     }
 
     /**

@@ -9,6 +9,12 @@ public class Main {
 
         tree.delete(47);
 
+//        System.out.println(tree.search(47));
+        System.out.println(tree.search(37).value.toString());
+
+        System.out.println(tree.searchMinValue());
+        System.out.println(tree.searchMaxValue());
+
         tree.printPreOrder();
         tree.printInOrder();
         tree.printPostOrder();
