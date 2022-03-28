@@ -189,7 +189,6 @@ public class AVLTree<T extends Comparable<T>> {
         rebalance(node, node.left);
         rebalance(node, node.right);
         rebalance(pre, node);
-
     }
 
     /**
