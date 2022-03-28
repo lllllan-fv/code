@@ -1,12 +1,14 @@
+package avl;
+
 @SuppressWarnings({"all"})
-public class BSTree<T extends Comparable<T>> {
+public class AVLTree<T extends Comparable<T>> {
 
-    private BSTNode<T> root;
+    private AVLNode<T> root;
 
-    public BSTree() {
+    public AVLTree() {
     }
 
-    public BSTree(BSTNode<T> root) {
+    public AVLTree(AVLNode<T> root) {
         this.root = root;
     }
 
@@ -16,11 +18,11 @@ public class BSTree<T extends Comparable<T>> {
      * @param value
      * @return
      */
-    public BSTNode<T> search(T value) {
+    public AVLNode<T> search(T value) {
         return search(root, value);
     }
 
-    public BSTNode<T> search(BSTNode<T> node, T value) {
+    public AVLNode<T> search(AVLNode<T> node, T value) {
         if (root == null || value == null) return null;
         int cmp = value.compareTo(node.value);
         if (cmp == 0) {
@@ -40,11 +42,11 @@ public class BSTree<T extends Comparable<T>> {
     public T searchMaxValue() {
         if (root == null) return null;
 
-        BSTNode<T> node = searchMaxValue(root);
+        AVLNode<T> node = searchMaxValue(root);
         return node == null ? null : node.value;
     }
 
-    public BSTNode<T> searchMaxValue(BSTNode<T> node) {
+    public AVLNode<T> searchMaxValue(AVLNode<T> node) {
         while (node.right != null) node = node.right;
         return node;
     }
@@ -57,11 +59,11 @@ public class BSTree<T extends Comparable<T>> {
     public T searchMinValue() {
         if (root == null) return null;
 
-        BSTNode<T> node = searchMinValue(root);
+        AVLNode<T> node = searchMinValue(root);
         return node == null ? null : node.value;
     }
 
-    public BSTNode<T> searchMinValue(BSTNode<T> node) {
+    public AVLNode<T> searchMinValue(AVLNode<T> node) {
         while (node.left != null) node = node.left;
         return node;
     }
@@ -75,32 +77,38 @@ public class BSTree<T extends Comparable<T>> {
     public boolean insert(T value) {
         if (value == null) return false;
         if (root == null) {
-            root = new BSTNode<>(value, null, null);
+            root = new AVLNode<>(value, null, null);
             return true;
         }
 
-        return insert(root, value);
+        return insert(null, root, value);
     }
 
-    public boolean insert(BSTNode<T> node, T value) {
+    public boolean insert(AVLNode<T> pre, AVLNode<T> node, T value) {
+        boolean res;
+
         int cmp = value.compareTo(node.value);
         if (cmp == 0) {
-            return false;
+            res = false;
         } else if (cmp < 0) {
             if (node.left == null) {
-                node.left = new BSTNode(value, null, null);
-                return true;
+                node.left = new AVLNode(value, null, null);
+                res = true;
             } else {
-                return insert(node.left, value);
+                res = insert(node, node.left, value);
             }
         } else {
             if (node.right == null) {
-                node.right = new BSTNode(value, null, null);
-                return true;
+                node.right = new AVLNode(value, null, null);
+                res = true;
             } else {
-                return insert(node.right, value);
+                res = insert(node, node.right, value);
             }
         }
+
+        rebalance(pre, node);
+
+        return res;
     }
 
     /**
@@ -114,22 +122,35 @@ public class BSTree<T extends Comparable<T>> {
         return delete(null, root, value);
     }
 
-    public boolean delete(BSTNode<T> pre, BSTNode<T> node, T value) {
+    public boolean delete(AVLNode<T> pre, AVLNode<T> node, T value) {
         if (node == null) return false;
+        boolean res;
 
         int cmp = value.compareTo(node.value);
         if (cmp == 0) {
             delete(pre, node);
-            return true;
+            res = true;
         } else if (cmp < 0) {
-            return delete(node, node.left, value);
+            res = delete(node, node.left, value);
         } else {
-            return delete(node, node.right, value);
+            res = delete(node, node.right, value);
         }
+
+        if (pre == null) {
+            root = node;
+        } else if (pre.left == node) {
+            pre.left = node;
+        } else {
+            pre.right = node;
+        }
+
+        rebalance(pre, node);
+
+        return res;
     }
 
-    public void delete(BSTNode<T> pre, BSTNode<T> node) {
-        BSTNode ori = node;
+    public void delete(AVLNode<T> pre, AVLNode<T> node) {
+        AVLNode ori = node;
         if (node.right == null) {
             // 右子树为空，直接接上左子树
             node = node.left;
@@ -139,8 +160,8 @@ public class BSTree<T extends Comparable<T>> {
         } else {
             // 都不为空
             // 找到左子树中，最大的节点，并替换到删除节点位置处
-            BSTNode<T> parent = node;
-            BSTNode<T> leftMaxValueNode = node.left;
+            AVLNode<T> parent = node;
+            AVLNode<T> leftMaxValueNode = node.left;
             while (leftMaxValueNode.right != null) {
                 parent = leftMaxValueNode;
                 leftMaxValueNode = leftMaxValueNode.right;
@@ -163,6 +184,49 @@ public class BSTree<T extends Comparable<T>> {
         } else {
             pre.right = node;
         }
+
+        // 平衡左右子树，再平衡自己
+        rebalance(node, node.left);
+        rebalance(node, node.right);
+        rebalance(pre, node);
+
+    }
+
+    /**
+     * 平衡方法
+     *
+     * @param node
+     */
+    public void rebalance(AVLNode<T> pre, AVLNode<T> node) {
+        if (node == null) return;
+
+        node.updateHeight();
+        int balance = node.balanceFactor();
+        if (balance >= -1 && balance <= 1) return;
+
+        AVLNode link;
+        if (balance == -2) {
+            AVLNode right = node.right;
+            node.right = right.left;
+            right.left = node;
+            link = right;
+        } else {
+            AVLNode left = node.left;
+            node.left = left.right;
+            left.right = node;
+            link = left;
+        }
+
+        node.updateHeight();
+        link.updateHeight();
+
+        if (pre == null) {
+            root = link;
+        } else if (pre.left == node) {
+            pre.left = link;
+        } else {
+            pre.right = link;
+        }
     }
 
     /**
@@ -179,7 +243,7 @@ public class BSTree<T extends Comparable<T>> {
         System.out.println(str);
     }
 
-    public StringBuilder preOrder(BSTNode<T> node) {
+    public StringBuilder preOrder(AVLNode<T> node) {
         if (node == null) return new StringBuilder("");
 
         StringBuilder res = preOrder(node.left);
@@ -203,7 +267,7 @@ public class BSTree<T extends Comparable<T>> {
         System.out.println(str);
     }
 
-    public StringBuilder inOrder(BSTNode<T> node) {
+    public StringBuilder inOrder(AVLNode<T> node) {
         if (node == null) return new StringBuilder("");
 
         StringBuilder res = new StringBuilder(node.value.toString()).append(",");
@@ -227,7 +291,7 @@ public class BSTree<T extends Comparable<T>> {
         System.out.println(str);
     }
 
-    public StringBuilder postOrder(BSTNode<T> node) {
+    public StringBuilder postOrder(AVLNode<T> node) {
         if (node == null) return new StringBuilder("");
 
         StringBuilder res = new StringBuilder(postOrder(node.left));
@@ -237,15 +301,45 @@ public class BSTree<T extends Comparable<T>> {
         return res;
     }
 
-    public class BSTNode<T extends Comparable<T>> {
-        T value;
-        BSTNode<T> left;
-        BSTNode<T> right;
+    public void printEdge() {
+        printEdge(root);
+    }
 
-        public BSTNode(T value, BSTNode<T> left, BSTNode<T> right) {
+    public void printEdge(AVLNode<T> node) {
+        if (node == null) return;
+        if (node.left != null) {
+            System.out.println(node.value.toString() + " " + node.left.value.toString());
+            printEdge(node.left);
+        }
+        if (node.right != null) {
+            System.out.println(node.value.toString() + " " + node.right.value.toString());
+            printEdge(node.right);
+        }
+    }
+
+    public class AVLNode<T extends Comparable<T>> {
+        T value;
+        int height;
+        AVLNode<T> left;
+        AVLNode<T> right;
+
+        public AVLNode(T value, AVLNode<T> left, AVLNode<T> right) {
             this.value = value;
             this.left = left;
             this.right = right;
+            this.height = 1;
+        }
+
+        public int balanceFactor() {
+            return getHeight(left) - getHeight(right);
+        }
+
+        public void updateHeight() {
+            height = Math.max(getHeight(left), getHeight(right)) + 1;
+        }
+
+        public int getHeight(AVLNode<T> node) {
+            return node == null ? 0 : node.height;
         }
     }
 
