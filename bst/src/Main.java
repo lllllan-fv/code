@@ -7,10 +7,10 @@ public class Main {
 
         for (int num : arr) tree.insert(num);
 
-        tree.delete(47);
+        tree.delete(29);
+        tree.delete(99);
 
 //        System.out.println(tree.search(47));
-        System.out.println(tree.search(37).value.toString());
 
         System.out.println(tree.searchMinValue());
         System.out.println(tree.searchMaxValue());

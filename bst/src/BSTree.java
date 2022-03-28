@@ -129,6 +129,7 @@ public class BSTree<T extends Comparable<T>> {
     }
 
     public void delete(BSTNode<T> pre, BSTNode<T> node) {
+        BSTNode ori = node;
         if (node.right == null) {
             // 右子树为空，直接接上左子树
             node = node.left;
@@ -153,6 +154,14 @@ public class BSTree<T extends Comparable<T>> {
                 // 否则，将替换节点的左子树，连接到其父亲节点的右子树上
                 parent.right = leftMaxValueNode.left;
             }
+        }
+
+        if (pre == null) {
+            root = node;
+        } else if (ori == pre.left) {
+            pre.left = node;
+        } else {
+            pre.right = node;
         }
     }
 
