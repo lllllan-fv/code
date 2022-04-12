@@ -5,6 +5,11 @@ public class ArrayDequeDemo {
     public static void main(String[] args) {
         System.out.println(-2 & 15);
         ArrayDeque<Integer> Q = new ArrayDeque<>();
+
+        for (int i = 0; i < 100000; ++i) {
+            Q.add(i);
+        }
+        Q.clear();
     }
 
     /**
