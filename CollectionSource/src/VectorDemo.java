@@ -11,6 +11,10 @@ public class VectorDemo {
     }
 
     /**
+     * 默认初始容量为 10
+     */
+
+    /**
      * 指定的 capacityIncrement 是增量，如果指定过增量，每次按照该大小进行扩容，否则每次扩容一倍
      * int newCapacity = oldCapacity + ((capacityIncrement > 0) ? capacityIncrement : oldCapacity);
      */

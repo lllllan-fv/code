@@ -8,6 +8,10 @@ public class ArrayListDemo {
     }
 
     /**
+     * 默认初始容量为 10
+     */
+
+    /**
      * 每次扩容 0.5 倍
      * int newCapacity = oldCapacity + (oldCapacity >> 1);
      */
