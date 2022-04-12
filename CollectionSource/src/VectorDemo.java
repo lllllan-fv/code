@@ -1,10 +1,13 @@
-import java.util.List;
 import java.util.Vector;
 
 public class VectorDemo {
 
     public static void main(String[] args) {
-        List<Integer> list = new Vector<>();
+        Vector<String> vector = new Vector<>();
+
+        vector.add("hello");
+//        下标不合法，但是源码中没有检查
+//        System.out.println(vector.indexOf("hello", -2));
     }
 
     /**
