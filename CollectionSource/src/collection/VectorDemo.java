@@ -1,3 +1,5 @@
+package collection;
+
 import java.util.Vector;
 
 public class VectorDemo {

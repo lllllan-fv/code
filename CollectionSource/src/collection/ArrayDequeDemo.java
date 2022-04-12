@@ -1,3 +1,5 @@
+package collection;
+
 import java.util.ArrayDeque;
 
 public class ArrayDequeDemo {
