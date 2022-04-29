@@ -18,7 +18,9 @@ public class VideoController {
 
     @RequestMapping("list")
     public Object listVideo() {
-//        http://localhost:8081/video/list
+        int i = 1 / 0;
+
+//        http://localhost:8081/api/v1/pub/video/list
         List<Video> videos = videoService.listVideo();
         return JsonData.success(videos);
     }
