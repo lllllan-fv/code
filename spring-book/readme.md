@@ -419,3 +419,178 @@ public class VideoExceptionHandler {
     }
 }
 ```
+
+
+
+## MD5加密
+
+
+
+### MD5工具类
+
+```java
+package cn.lllllan.springdemo.utils;
+
+import java.security.MessageDigest;
+
+public class MD5Encrypt {
+
+    /**
+     * MD5 加密
+     *
+     * @param str 待加密字符串
+     * @return 加密结果
+     */
+    public static String encrypt(String str) {
+        try {
+            java.security.MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(str.getBytes("UTF-8"));
+            StringBuilder sb = new StringBuilder();
+            for (byte item : array) {
+                sb.append(Integer.toHexString((item & 0xFF) | 0x100).substring(1, 3));
+            }
+
+            return sb.toString().toUpperCase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+}
+```
+
+
+
+### 用户注册
+
+
+
+数据库操作
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.lllllan.springdemo.mapper.UserMapper">
+
+    <insert id="register" parameterType="User">
+        insert into user (name, pwd, head_img, phone, create_time)
+        values (
+            #{name, jdbcType=VARCHAR}, #{pwd, jdbcType=VARCHAR}, #{headImg, jdbcType=VARCHAR},
+            #{phone, jdbcType=VARCHAR}, #{createTime, jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <!--  根据手机号查询用户信息  -->
+    <select id="findUSerByPhone" resultType="User">
+        select * from user where phone = #{phone}
+    </select>
+
+</mapper>
+```
+
+
+
+接口提供
+
+- 注解：@RequestBody，因为是 Json 格式传递
+
+```
+@RestController
+@RequestMapping("api/v1/pri/user")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping("register")
+    public JsonData register(@RequestBody Map<String, String> userInfo) {
+//        http://localhost:8081/api/v1/pri/user/register
+
+        int rows = userService.register(userInfo);
+
+        return rows == 1 ? JsonData.success() : JsonData.error("注册失败");
+    }
+}
+```
+
+
+
+service
+
+- 接口请求的时候是 json
+- 进入接口以后 java 识别到的是 map
+- 再将 map 转换成对应的实体类，转交给 mapper 写入数据库
+
+```java
+package cn.lllllan.springdemo.service.impl;
+
+import cn.lllllan.springdemo.domain.User;
+import cn.lllllan.springdemo.mapper.UserMapper;
+import cn.lllllan.springdemo.service.UserService;
+import cn.lllllan.springdemo.utils.MD5Encrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.Map;
+import java.util.Random;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserMapper userMapper;
+
+    /**
+     * 放在CDN上的随机头像
+     */
+    private static final String[] headImg = {
+            "https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/default/head_img/12.jpeg",
+            "https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/default/head_img/11.jpeg",
+            "https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/default/head_img/13.jpeg",
+            "https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/default/head_img/14.jpeg",
+            "https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/default/head_img/15.jpeg"
+    };
+
+
+    @Override
+    public int register(Map<String, String> userInfo) {
+        User user = parseToUser(userInfo);
+
+        if (user != null) {
+            return userMapper.register(user);
+        } else {
+            return -1;
+        }
+    }
+
+    @Override
+    public User findUserByPhone(String phone) {
+        return null;
+    }
+
+    private User parseToUser(Map<String, String> map) {
+        if (map.containsKey("phone") && map.containsKey("pwd") && map.containsKey("name")) {
+            User user = new User();
+            user.setName(map.get("name"));
+            user.setPwd(MD5Encrypt.encrypt(map.get("pwd")));
+            user.setPhone(map.get("phone"));
+            user.setHeadImg(getRandomImg());
+            user.setCreateTime(new Date());
+
+            return user;
+        }
+
+        return null;
+    }
+
+    private String getRandomImg() {
+        int size = headImg.length;
+        return headImg[new Random().nextInt(size)];
+    }
+}
+```

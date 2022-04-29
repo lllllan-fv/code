@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.lllllan.springdemo.mapper.UserMapper">
+
+    <insert id="register" parameterType="User">
+        insert into user (name, pwd, head_img, phone, create_time)
+        values (
+            #{name, jdbcType=VARCHAR}, #{pwd, jdbcType=VARCHAR}, #{headImg, jdbcType=VARCHAR},
+            #{phone, jdbcType=VARCHAR}, #{createTime, jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <!--  根据手机号查询用户信息  -->
+    <select id="findUSerByPhone" resultType="User">
+        select * from user where phone = #{phone}
+    </select>
+
+</mapper>
