@@ -1,5 +1,7 @@
 ## 基本依赖
 
+位置：`pom.xml`
+
 ```xml
 <dependencies>
     <dependency>
@@ -55,6 +57,22 @@
     </dependency>
 
 </dependencies>
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <fork>true</fork><!--必须添加这个配置-->
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 
@@ -307,4 +325,19 @@ public class JsonData {
         this.msg = msg;
     }
 }
+```
+
+
+
+## 热部署
+
+[小滴课堂-视频播放 (16web.net)](https://16web.net/?access_token=xdclasseyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ4ZGNsYXNzIiwicm9sZXMiOiIxIiwiaW1nIjoiaHR0cHM6Ly90aGlyZHd4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9nSkRraWFvMXBVWkduQUVjWUtTVXdRU2NsSmliTWFNYVR1cER2aWFSZnE4dFJjRk5aTWtDNUNCYnQ5QjZJSEtkZ2FqRWNhRGlidXJFQU83anp4OHZXbDFid2cvMTMyIiwiaWQiOjY4MDM3NjEsIm5hbWUiOiLng63ooYDlsJHlubQiLCJpYXQiOjE2NTEyMDE4MzYsImV4cCI6MTY1MTgwNjYzNn0.zz-eO6Sp9IiDAUzoFAJob3h7v6PY6wEHQU2nyVdsEKU&head_img=https://thirdwx.qlogo.cn/mmopen/vi_32/gJDkiao1pUZGnAEcYKSUwQSclJibMaMaTupDviaRfq8tRcFNZMkC5CBbt9B6IHKdgajEcaDiburEAO7jzx8vWl1bwg/132&name=热血少年#/dplayer?video_id=52&e_id=102118)
+
+```xml
+<!--热部署-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
 ```
