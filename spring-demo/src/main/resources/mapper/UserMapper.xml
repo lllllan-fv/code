@@ -13,6 +13,10 @@
         )
     </insert>
 
+    <select id="login" resultType="User">
+        select * from user where phone=#{phone} and pwd=#{pwd}
+    </select>
+
     <!--  根据手机号查询用户信息  -->
     <select id="findUSerByPhone" resultType="User">
         select * from user where phone = #{phone}

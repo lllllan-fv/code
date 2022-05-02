@@ -8,5 +8,7 @@ public interface UserService {
 
     int register(Map<String, String> userInfo);
 
+    String login(String phone, String pwd);
+
     User findUserByPhone(String phone);
 }

@@ -3,6 +3,7 @@ package cn.lllllan.springdemo.service.impl;
 import cn.lllllan.springdemo.domain.User;
 import cn.lllllan.springdemo.mapper.UserMapper;
 import cn.lllllan.springdemo.service.UserService;
+import cn.lllllan.springdemo.utils.JWT;
 import cn.lllllan.springdemo.utils.MD5Encrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,12 @@ public class UserServiceImpl implements UserService {
         } else {
             return -1;
         }
+    }
+
+    @Override
+    public String login(String phone, String pwd) {
+        User user = userMapper.login(phone, MD5Encrypt.encrypt(pwd));
+        return user == null ? null : JWT.getJWT(user);
     }
 
     @Override

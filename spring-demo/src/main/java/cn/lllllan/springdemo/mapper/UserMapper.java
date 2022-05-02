@@ -7,6 +7,8 @@ public interface UserMapper {
 
     int register(User user);
 
+    User login(@Param("phone") String phone, @Param("pwd") String pwd);
+
     User findUserByPhone(@Param("phone") String phone);
 
 }
