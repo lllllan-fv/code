@@ -60,7 +60,7 @@
             <version>3.9</version>
         </dependency>
 
-        <!--解决jwt跨域问题-->
+        <!--jwt相关-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
