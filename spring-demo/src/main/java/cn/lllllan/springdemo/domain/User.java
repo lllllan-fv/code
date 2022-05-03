@@ -1,5 +1,8 @@
 package cn.lllllan.springdemo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class User {
@@ -10,10 +13,13 @@ public class User {
 
     private String pwd;
 
+    @JsonProperty("head_img")
     private String headImg;
 
     private String phone;
 
+    @JsonProperty("create_time")
+    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     public User() {

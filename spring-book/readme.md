@@ -833,3 +833,23 @@ public class InterceptorConfig implements WebMvcConfigurer {
     }
 }
 ```
+
+
+
+## 事务
+
+在操作处理的 ServiceImpl 的具体方法前添加注释 `@Transactional`
+
+
+
+## 驼峰命名
+
+Java 中习惯驼峰命名，而 json 和 MySQL 中喜欢以下划线分割，可以用注解 `@JsonProperty` 来对应
+
+具体的格式通过注解 `@JsonFormat` 来控制
+
+```java
+@JsonProperty("create_time")
+@JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss", timezone = "GMT+8")
+private Date createTime;
+```
