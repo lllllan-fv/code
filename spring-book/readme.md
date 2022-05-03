@@ -1,3 +1,7 @@
+[spring boot 项目部署到服务器 两种方式_好软好可爱啊的博客-CSDN博客_springboot项目部署](https://blog.csdn.net/qq_22638399/article/details/81506448)
+
+
+
 ## 基本依赖
 
 位置：`pom.xml`
