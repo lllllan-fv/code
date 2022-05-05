@@ -1,58 +1,18 @@
+package cn.lllllan.springredis.config;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-## 依赖
+import java.net.UnknownHostException;
 
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-security</artifactId>
-</dependency>
-```
-
-
-
-## 配置
-
-位置：`src/main/resources/application.properties`
-
-```xml
-# redis
-spring.redis.host=lllllan.cn
-spring.redis.port=6379
-spring.redis.password=password
-```
-
-
-
-## 使用
-
-```java
-@SpringBootTest
-class SpringRedisApplicationTests {
-
-    @Autowired
-    private RedisTemplate redisTemplate;
-
-    @Test
-    void contextLoads() {
-        redisTemplate.opsForValue().set("name", "lllllan");
-        System.out.println(redisTemplate.opsForValue().get("name"));
-    }
-
-}
-```
-
-
-
-## 自定义 RedisTemplate
-
-注意注解，方法中可以实现自己的需求，比如对对象的序列化
-
-```java
 @Configuration
 public class RedisConfig {
 
@@ -86,6 +46,3 @@ public class RedisConfig {
         return template;
     }
 }
-
-```
-
