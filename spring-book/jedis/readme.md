@@ -70,8 +70,9 @@ public class PingTest {
 ## 事务
 
 ```java
+Transaction multi = jedis.multi();
+
 try {
-    Transaction multi = jedis.multi();
     multi.set("name", "lllllan");
     multi.set("age", "22");
     List<Object> exec = multi.exec();
@@ -80,6 +81,7 @@ try {
         System.out.println(object.toString());
     }
 } catch (Exception e) {
+    multi.discard();
     e.printStackTrace();
 }
 ```
