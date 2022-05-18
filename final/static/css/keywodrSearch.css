@@ -1,0 +1,22 @@
+body{
+    background-color: #e5e5e5;
+}
+#navbarSupportedContent{
+    display: flex;
+    justify-content: space-between;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    margin: 4%;
+    background-color: #ffffff;
+    padding: 3%;
+    align-items: center;
+}
+.col-md-9{
+    background-color: #f2f2f2;
+}
+.col-md-3{
+    max-width: max-content;
+}

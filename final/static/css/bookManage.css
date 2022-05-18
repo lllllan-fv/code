@@ -1,0 +1,23 @@
+/* .form-inline{
+    display: flex;
+    justify-content: space-between;
+} */
+
+.cctvmid{
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+#pd{
+    margin-left: 5%;
+}
+
+#md{
+    margin-left: 50%;
+}
+.mb-3{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}

@@ -1,0 +1,35 @@
+.opinion{
+    background-color:white;
+    /* width: 60%; */
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+}
+
+.photo{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.contentpiece{
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+.headbasic{
+    display: flex;
+    flex-direction: column;
+}
+.contenthead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nameid{
+    display: flex;
+    flex-direction: row;
+}
+.card-text{
+    color: #666;
+}

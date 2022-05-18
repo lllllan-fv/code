@@ -1,0 +1,42 @@
+body{
+    background-color: #e5e5e5;
+}
+#navbarSupportedContent{
+    display: flex;
+    justify-content: space-between;
+}
+.container{
+    display: flex;
+    max-width: 88%;     
+    margin-top: 3%;
+    margin-left: 6%;
+    margin-right: 6%;
+    background-color: #ffffff;
+}
+.content{
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 65%;
+    width: 93%; 
+}
+.col-12.booktype{
+    margin-top: 3%;
+    background: #e7e5e5ab;
+}
+.col-12.book{
+    margin-top: 3%;
+}
+.card{
+    
+    border: unset;
+}
+.col-md-4.button_read{
+    margin-top: 11%;
+    text-align: right;
+
+}
+.col-12.bookdetails{
+    margin-bottom: 3%;
+    background: #e7e5e5ab;
+}

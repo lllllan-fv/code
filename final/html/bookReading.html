@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookReading</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bookReading.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #E3D1BD;">
+        <a class="navbar-brand" href="index.html" style="margin-left:5% ;">
+            <img src="../static/img/brand.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <span class="navbar-text">万文集舍</span>
+            <img src="../static/img/profiletest.png" width="30" height="30" alt="" style="margin-right:5% ;">
+        </div>
+    </nav>
+    <div id="container">
+        
+        <div id="leftbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#" style="color: #DB4E44;">第一章 在雪山和雪山之间</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" style="color: #333;">第二章 夏日植物巡行</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" style="color: #333;">第三章 山中十日</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" style="color: #333;">第四章 牵风</a></li>
+            </ul>
+        </div>
+        
+        <div id="mainbar">
+            <div class="pagehead">
+                <h6 id="bookname">《在雪山和雪山之间》</h6>
+                <h6 id="chaptername">第一章 在雪山和雪山之间</h6>
+                <hr width="90%">
+            </div>
+            <div class="pagetitle">
+                <h4>第一章 在雪山和雪山之间</h4>
+            </div>
+            <div class="pagecontent">
+                <p>少年时，我一次次在洪水的漩涡中安静地被带到水下浑浊的深处，再由它带领近水面，沿着切线方向奋力游出，这是我们一帮胆大小孩的游戏，把握危险边缘的精妙平衡带来的刺激。</p>
+            </div>
+        </div>
+
+        <div id="rightbar">
+            <div class="rightbottom" style="width: 70%;">
+                <h6>阅读进度</h6>
+                <div class="prog">
+                    <div class="progress" style="width: 100%;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <!-- <button type="button" class="btn btn-primary" id="b1">上一页</button> -->
+                <!-- <button type="button" class="btn btn-primary" id="b2">下一页</button> -->
+                <div class="twobutton">
+                    <button type="button" id="previous"><img src="../static/img/btn-reading-previouspage.svg"></button>
+                    <button type="button" id="next"><img src="../static/img/btn-reading-nextpage.svg"></button>
+                </div>
+            </div>         
+        </div>
+    </div>
+    
+</body>
+
+<script src="../src/bootstrap.js"></script>
+<script src="../src/bootstrap.js.map"></script>
+<script src="../src/jquery.min.js"></script>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>centerRecord</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.css.map">
+    <link rel="stylesheet" href="../static/css/indexstyle.css">
+    <link rel="stylesheet" href="../static/css/centerRecord.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html" style="margin-left:5% ;">
+        <img src="../static/img/brand.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">首页 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">分类检索</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">意见中心</a>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="输入关键字检索" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜 索</button>
+      </form>
+      <button type="button" class="btn btn-outline-info" style="margin-right:5% ;">登 录</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row big"style="margin-left:3%;width: 90%;" >           
+          <div class="col-12"><h4 style="margin-top:3% ;margin-left: 3%;margin-bottom: 3%;">个人中心</h4></div>
+          <div class="col-2">  <dl class="row"></dl>           
+            <script>
+              var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+              if (isFluid) {
+                var container = document.querySelector('[data-layout]');
+                container.classList.remove('container');
+                container.classList.add('container-fluid');
+              }
+            </script>
+          <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+              <script>
+                  var navbarStyle = localStorage.getItem("navbarStyle");
+                  if (navbarStyle && navbarStyle !== 'transparent') {
+                  document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
+                  }
+              </script>
+            <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+              <div class="navbar-vertical-content scrollbar">
+                  <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+                    <li class="nav-item"style="margin-bottom:10%"> 
+                        <a class="nav-link" href="..." role="button" data-bs-toggle aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                  <svg class="svg-inline--fa fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas" role="img"xmlns="http://www.w3.org/2000/svg" width="32" height="35" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                  </svg>
+                                  
+                                             </span>
+                                   <span class="nav-link-text ps-1 linktitle"style="display:inline-block;font-size:15px;font-weight:bold;">个人信息</span>
+                               </div>
+                           </a>
+                       </li>
+                            <li class="nav-item"style="margin-bottom:10%"> 
+                                <a class="nav-link" href="..." role="button" data-bs-toggle aria-expanded="false">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-icon">
+                                            <svg class="svg-inline--fa fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                                <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                                              </svg>
+                                            </span>
+                                            <span class="nav-link-text ps-1 linktitle"style="display:inline-block;font-size:15px;font-weight:bold;"> 阅读记录</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item"> 
+                                    <a class="nav-link" href="..." role="button" data-bs-toggle aria-expanded="false">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-icon">
+                                                <svg class="svg-inline--fa fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+                                                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                                              </svg>
+                                            </span>
+                                            <span class="nav-link-text ps-1 linktitle"style="display:inline-block;font-size:15px;font-weight:bold;"> 意见反馈</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    
+          </div>
+
+          <div class="col-9"> 
+            <div class="row_1"style="margin-top:3%;margin-bottom:3%;margin-left:3%;max-width: 100%; ">
+              <div class="bookimg"style="width:20%;">
+                <img src="../static/img/bookImage2.png" alt="..."width="160%">
+              </div>
+              <div class="book_content"style="width:200%;">
+                <div class="row"style="margin-left:2%;">                
+                  <div class="col-md-7"style="margin-top:2.3%;"><h5 >朝花夕拾·呐喊</h5></div>
+                  <div class="col-md-4 delete"style="margin-top:2.3%;"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16" href="#">
+                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                  </svg></a></div>
+                 <div class="col-md-12"style="margin-top:1%;"><p >作者：鲁迅 &emsp;&emsp; 类型：I 文学</p></div> 
+                 <div class="col-md-7">
+                  <p ><small > 阅读进度：60%</small><small class="text-muted"> &emsp;&emsp;最近阅读：2022/5/8 19:17</small></p>
+                 </div>
+                 <div class="col-md-4 goto"><button type="button" class="btn btn-outline-primary btn-sm">继续阅读</button></div>
+                 
+                </div>
+              </div>   
+              </div>
+              <div class="row_1"style="margin-top:3%;margin-bottom:3%;margin-left:3%;max-width: 100%; ">
+                <div class="bookimg"style="width:20%;">
+                  <img src="../static/img/bookImage2.png" alt="..."width="160%">
+                </div>
+                <div class="book_content"style="width:200%;">
+                  <div class="row"style="margin-left:2%;">                
+                    <div class="col-md-7"style="margin-top:2.3%;"><h5 >朝花夕拾·呐喊</h5></div>
+                    <div  class="col-md-4 delete"style="margin-top:2.3%;"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                      <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                    </svg></a></div>
+                   <div class="col-md-12"style="margin-top:1%;"><p >作者：鲁迅 &emsp;&emsp; 类型：I 文学</p></div> 
+                   <div class="col-md-7">
+                    <p ><small > 阅读进度：60%</small><small class="text-muted"> &emsp;&emsp;最近阅读：2022/5/8 19:17</small></p>
+                   </div>
+                   <div class="col-md-4 goto"><button type="button" class="btn btn-outline-primary btn-sm">继续阅读</button></div>
+                   
+                  </div>
+                </div>   
+                </div>
+                <div class="row_1"style="margin-top:3%;margin-bottom:30%;margin-left:3%;max-width: 100%; ">
+                  <div class="bookimg"style="width:20%;">
+                    <img src="../static/img/bookImage2.png" alt="..."width="160%">
+                  </div>
+                  <div class="book_content"style="width:200%;">
+                    <div class="row"style="margin-left:2%;">                
+                      <div class="col-md-7"style="margin-top:2.3%;"><h5 >朝花夕拾·呐喊</h5></div>
+                      <div class="col-md-4 delete"style="margin-top:2.3%;"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16"href="#">
+                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                      </svg></a></div>
+                     <div class="col-md-12"style="margin-top:1%;"><p >作者：鲁迅 &emsp;&emsp; 类型：I 文学</p></div> 
+                     <div class="col-md-7">
+                      <p ><small > 阅读进度：60%</small><small class="text-muted"> &emsp;&emsp;最近阅读：2022/5/8 19:17</small></p>
+                     </div>
+                     <div class="col-md-4 goto"><button type="button" class="btn btn-outline-primary btn-sm">继续阅读</button></div>
+                     
+                    </div>
+                  </div>   
+                  </div>
+    
+  
+
+        </div>
+      </div>
+    </div>
+</body>
+<script src="../src/bootstrap.js"></script>
+<script src="../src/jquery.min.js"></script>
+</html>

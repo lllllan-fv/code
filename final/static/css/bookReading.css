@@ -1,0 +1,115 @@
+body{
+    background-color: #F8F0E7;
+}
+#navbarSupportedContent{
+    display: flex;
+    justify-content: space-between;
+}
+.navbar{
+    background: #E3D1BD;
+}
+.container-fluid{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.navigation_logo{
+    margin-left: 5%;
+}
+.navigation_profilephoto{
+    margin-right: 5%;
+}
+
+
+#container{
+    margin-top: 8%;
+    display: flex;
+    flex-direction: row;
+}
+
+#leftbar{
+    margin-top: 5%;
+    line-height: 3;
+    width: 25%;
+}
+#leftbar ul{
+    list-style-type: none;
+    display: table;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#mainbar{
+    width: 50%;
+    height:600px;
+    background-color: #FFF9F3;
+}
+
+#bookname{
+    margin-left: 5%;
+    color:#DB4E44;
+    display: inline;
+    line-height: 3;
+}
+#chaptername{
+   display: inline;
+    color: gray;
+}
+.pagetitle h4{
+    text-align: center;
+    font-weight: bold;
+    line-height: 3;
+}
+.pagecontent{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#rightbar{
+    width: 25%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+#rightbar h6{
+    color:#DB4E44;
+}
+
+.rightbottom{
+    position: relative;
+    top: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15%;
+}
+.prog{
+    display: flex;
+}
+.twobutton{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+
+/* #b1{
+    margin-left: 15%;
+    margin-top: 5%;
+    margin-right: 22%}
+#b2{
+    margin-top: 5%;
+} */
+
+#previous{
+    border-style: none;
+    background: url(../img/previous.svg) no-repeat;
+}
+    
+#next{
+    border-style: none;
+    background: url(../img/next.svg) no-repeat;
+}
+.nav{
+    background-color: #DB4E44;
+}

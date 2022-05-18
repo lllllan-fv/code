@@ -1,0 +1,126 @@
+body{
+    background-image:url(../img/reader-re.png) ;
+    background-size:100% 160% ;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bodyLogo{
+    margin-top: 2%;
+}
+
+.iconsize{
+    width: 26px;
+    color: #CBA273;
+}
+
+.inputarea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+    width: 350px;
+    height: 355px;
+}
+
+.iconarea{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    width: 30px;
+    height: 270px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.btnRgist{
+    width: 225px;
+    height: 50px;
+    background: #CBA273;
+    border-style: none;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+    font-family: Microsoft YaHei;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.2em;
+    color: #FFFFFF;
+}
+
+.rectangle{
+    background: white;
+    border: 1px solid #C1BBBB;
+    box-sizing: border-box;
+    border-radius: 2px;
+    height: 55px;
+    width: 300px;
+    margin-left: 30px;
+}
+
+/* input[type='checkbox']:checked::after{
+    content: '√';
+    color: #CBA273;
+    background-color: #CBA273;
+} */
+
+.areaRegist{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 501px;
+    height: 634px;
+    background: white;
+    border-radius: 7px;
+    align-items: center;
+    margin-top: 7%;
+}
+
+.frameRegist{
+    display: flex;
+    flex-direction: row;
+}
+
+p{
+    font-family: Microsoft YaHei;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    /* line-height: 24px; */
+    color: #CBA273;
+}
+
+.btn{
+    text-align:start;
+    font-family: Microsoft YaHei;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color:#757575;
+
+}
+
+/* add */
+.warning2
+{
+    display: flex;
+    justify-content: center;
+    color: #CBA273;
+    font-size: 1px;
+}
+#blankCheckbox{
+    color: #CBA273;
+}
+.form-check-label{
+    color: #b6b6b6;
+}
+.iconsize{
+    filter: drop-shadow(#CBA273 80px 0);
+    transform: translateX(-80px);
+    /* fill: #CBA273; */
+}

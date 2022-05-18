@@ -1,0 +1,35 @@
+.d-flex{
+    justify-content: space-evenly;
+}
+
+.linktitle{
+    font-size: medium;
+    letter-spacing:0.1rem;
+}
+
+.nav-item{
+    margin-bottom: 5%;
+}
+
+.cardimg{
+    width: 50%;
+}
+
+.datafont{
+    font-weight: bolder;
+    margin-left: 8%;
+}
+
+.unitfont{
+    font-weight: bolder;
+}
+
+.datatitle{
+    font-weight: bold;
+}
+
+.compose{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,49 @@
+body{
+    background-color: #F2F2F2;
+}
+#navbarSupportedContent{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.indexcontent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 89%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+}
+
+.bannertitle{
+    font-weight: bold;
+}
+
+.carousel{
+    width: 90%;
+    margin-top: 3%;
+}
+
+#rectitle{
+    margin-top: 1%;
+    width: 90%;
+    height: 200%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    background-color: #F2F2F2;
+}
+
+#reccontent{
+    width: 90%;
+}
+.card{
+    width: 100%;
+    margin-bottom: 10%;
+}
+.card-text{
+    color: #999;
+}

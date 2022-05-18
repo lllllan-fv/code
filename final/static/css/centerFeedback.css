@@ -1,0 +1,28 @@
+#navbarSupportedContent{
+    display: flex;
+    justify-content: space-between;
+}
+body{
+  background-color: #e5e5e5;
+}
+.container{
+  display: flex;
+  max-width: 88%;     
+  margin-top: 3%;
+  margin-left: 6%;
+  margin-right: 6%;
+  background-color: #ffffff;
+}
+.btn  {
+    float: right;
+} 
+div {
+  column-gap: 6px;
+}
+div {
+  row-gap: 40px;
+}
+
+.textarea{
+  width: 100%;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>readerRegister</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/readerRegister.css">
+</head>
+<body>
+    <div class="areaRegist">
+        <div class="bodyLogo">
+            <img src="../static/img/logo.png" alt="万文logo" style="width: 90px;">
+        </div>
+        <p>欢迎注册！</p>
+        <div class="frameRegist">
+            <div class="iconarea">
+                <img src="../static/img/person.svg" alt="user" class="iconsize">
+                <img src="../static/img/telephone.svg" alt="number" class="iconsize" >
+                <img src="../static/img/key.svg" alt="key1" class="iconsize">
+                <img src="../static/img/key.svg" alt="key2" class="iconsize">
+            </div>
+            <div class="inputarea">
+                <input type="text"  placeholder=" 请输入用户名" class="rectangle" id="userText" >
+                <input type="text"  placeholder=" 请输入手机号码" class="rectangle" id="numberText">
+                <input type="password"  placeholder=" 请确定密码" class="rectangle" id="pwdText">
+                <input type="password"  placeholder=" 请再次确认密码" class="rectangle" id="repwdText">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="background-color:#CBA273;">
+                    <label class="form-check-label" for="defaultCheck1">我已阅读并同意相关条款</label>
+                </div>
+            </div> 
+        </div>   
+        <button class="btnRgist">确认注册</button>
+    </div>
+</body>
+<script src="../src/jquery.min.js"></script>
+<script src="../src/regist.js"></script>
+</html>
