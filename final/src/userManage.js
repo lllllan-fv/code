@@ -4,7 +4,10 @@ $(document).ready(function () {
     get_user_list();
 })
 
-var user_list;
+// 从数据库获取的所有用户列表
+var user_list = [];
+// 当前页面显示的用户列表
+var list = [];
 
 // 获取所有的用户信息
 function get_user_list() {
@@ -20,7 +23,7 @@ function get_user_list() {
         },
         success: function (data) {
             // console.log(data);
-            user_list = data.data;
+            list = user_list = data.data;
         },
         error: function () {
             alert("sth wrong");
@@ -30,12 +33,13 @@ function get_user_list() {
     show_user_list(user_list);
 }
 
+// 显示（筛选后的）用户列表
 function show_user_list(list) {
     var table_data = "";
-    console.log("user_list", list);
+
     for (var idx in list) {
         var item = list[idx];
-        // console.log(item);
+
         var row = "<tr>"
             + "<td class='cctvmid' style='color: gray;'>" + item.user_id + "</td>"
             + "<td class='cctvmid' style='color: gray;'>" + item.user_name + "</td>"
@@ -47,7 +51,6 @@ function show_user_list(list) {
             + "<button type='button' class='btn btn-danger' onclick='reset_pwd(" + item.user_id + ")'>密码重置</button>"
             + "</td></tr>";
 
-        // console.log(row);
         table_data += row;
     }
 
@@ -55,11 +58,12 @@ function show_user_list(list) {
 }
 
 // 修改单个用户的阅读权限
+// idx 是当前显示列表的下标
 function reverse_permission(idx) {
     console.log("click reverse permission");
 
-    var user_id = user_list[idx].user_id;
-    var permission = (user_list[idx].user_per ^= 1);
+    var user_id = list[idx].user_id;
+    var permission = (list[idx].user_per ^= 1);
     console.log(user_id, permission);
 
     $.ajax({
@@ -81,7 +85,7 @@ function reverse_permission(idx) {
         }
     });
 
-    show_user_list(user_list);
+    show_user_list(list);
 }
 
 // 重置用户的密码
@@ -113,7 +117,7 @@ function search() {
 
     var key = $("#name").val();
 
-    var list = [];
+    list = [];
     for (var idx in user_list) {
         var item = user_list[idx];
         if (item.user_name.includes(key) || item.user_phone.includes(key)) {

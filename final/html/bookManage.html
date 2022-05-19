@@ -42,7 +42,8 @@
 				<div class="navbar-vertical-content scrollbar">
 					<ul class="navbar-nav flex-column" id="navbarVerticalNav">
 						<li class="nav-item" style="margin-top: 5%;">
-							<a class="nav-link" href="manageIndex.html" role="button" data-bs-toggle aria-expanded="false">
+							<a class="nav-link" href="manageIndex.html" role="button" data-bs-toggle
+								aria-expanded="false">
 								<div class="d-flex align-items-center">
 									<span class="nav-link-icon">
 										<svg class="svg-inline--fa fa-w-16" aria-hidden="true" focusable="false"
@@ -58,7 +59,8 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="userManage.html" role="button" data-bs-toggle aria-expanded="false">
+							<a class="nav-link" href="userManage.html" role="button" data-bs-toggle
+								aria-expanded="false">
 								<div class="d-flex align-items-center">
 									<span class="nav-link-icon">
 										<svg class="svg-inline--fa fa-w-16" aria-hidden="true" focusable="false"
@@ -73,7 +75,8 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="bookManage.html" role="button" data-bs-toggle aria-expanded="false">
+							<a class="nav-link" href="bookManage.html" role="button" data-bs-toggle
+								aria-expanded="false">
 								<div class="d-flex align-items-center">
 									<span class="nav-link-icon">
 										<svg class="svg-inline--fa fa-w-16" aria-hidden="true" focusable="false"
@@ -88,7 +91,8 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="opinionManage.html" role="button" data-bs-toggle aria-expanded="false">
+							<a class="nav-link" href="opinionManage.html" role="button" data-bs-toggle
+								aria-expanded="false">
 								<div class="d-flex align-items-center">
 									<span class="nav-link-icon">
 										<svg class="svg-inline--fa fa-w-16" aria-hidden="true" focusable="false"
@@ -136,9 +140,8 @@
 					<button type="button" class="btn btn-primary" id="pd" onclick="search()">搜 索</button>
 					<button type="button" class="btn btn-outline-success" id="md" data-toggle="modal"
 						data-target="#exampleModal"><i class="bi bi-plus-lg">+ </i>添 加</button>
-					<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-          </button> -->
+
+					<!-- 增加添加书籍模态框 -->
 					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 						aria-hidden="true">
 						<div class="modal-dialog">
@@ -151,39 +154,62 @@
 								</div>
 								<div class="modal-body">
 									<form>
-										<div class="mb-3">
+										<!-- <div class="mb-3">
 											<label for="recipient-name" class="col-form-label"
-												style="margin-right:5%;">图书编号: </label>
+													style="margin-right:5%;">图书编号: </label>
 											<input type="text" class="form-control" id="newid">
-										</div>
+										</div> -->
 										<div class="mb-3">
 											<label for="message-text" class="col-form-label"
 												style="margin-right:5%;">图书类型: </label>
-
 											<input type="text" class="form-control" id="newtype">
 										</div>
 										<div class="mb-3">
 											<label for="message-text" class="col-form-label"
-												style="margin-right:5%;">图书作者: </label>
-
-											<input type="text" class="form-control" id="newauthor">
+												style="margin-right:5%;">图书名称: </label>
+											<input type="text" class="form-control" id="newname">
 										</div>
 										<div class="mb-3">
 											<label for="message-text" class="col-form-label"
-												style="margin-right:5%;">图书页数: </label>
-
-											<input type="text" class="form-control" id="newpage">
+												style="margin-right:5%;">图书作者: </label>
+											<input type="text" class="form-control" id="newauthor">
 										</div>
+										<!-- <div class="mb-3">
+											<label for="message-text" class="col-form-label"
+												style="margin-right:5%;">图书页数: </label>
+											<input type="text" class="form-control" id="newpage">
+										</div> -->
 										<div class="mb-3">
 											<label for="message-text" class="col-form-label"
 												style="margin-right:5%;">收费情况: </label>
-
 											<input type="text" class="form-control" id="newper">
+										</div>										
+										<div class="mb-3">
+											<label for="message-text" class="col-form-label"
+												style="margin-right:5%;white-space: nowrap; ">图书简介: </label>
+											<input type="text" class="form-control" id="newintro">
+										</div>
+										<div class="mb-3">
+											<label for="message-text" class="col-form-label"
+												style="margin-right:5%;white-space: nowrap; ">图书内容: </label>
+											<input type="text" class="form-control" id="newcontent">
+										</div>
+
+										<div class="control-group">
+											<label class="control-label" for="FileUpload1">上传图书封面</label>
+											<div class="controls">
+												<form id="upload_form">
+													<input class="input-file uniform_on" id="add_cover"
+														name="FileUpload1" type="file"
+														onchange="upload_cover(this.files)">
+												</form>
+											</div>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary"
 												data-dismiss="modal">关闭</button>
-											<button type="button" class="btn btn-primary">添加</button>
+											<button type="button" class="btn btn-primary"
+												onclick="book_add()">添加</button>
 										</div>
 									</form>
 								</div>
@@ -220,9 +246,7 @@
 						<td class="cctvmid">
 							<button type="button" class="btn btn-success" style="margin-right: 10%;" data-toggle="modal"
 								data-target="#changeModal">编 辑</button>
-							<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-          </button> -->
+							<!-- 增加修改模态框 -->
 							<div class="modal fade" id="changeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 								aria-hidden="true">
 								<div class="modal-dialog">
@@ -237,33 +261,49 @@
 											<form>
 												<div class="mb-3">
 													<label for="recipient-name" class="col-form-label"
-														style="margin-right:5%;">图书编号: </label>
+														style="margin-right:5%; white-space: nowrap; ">图书编号: </label>
 													<input type="text" class="form-control" id="newid">
 												</div>
 												<div class="mb-3">
 													<label for="message-text" class="col-form-label"
-														style="margin-right:5%;">图书类型: </label>
+														style="margin-right:5%; white-space: nowrap; ">图书类型: </label>
 
 													<input type="text" class="form-control" id="newtype">
 												</div>
 												<div class="mb-3">
 													<label for="message-text" class="col-form-label"
-														style="margin-right:5%;">图书作者: </label>
+														style="margin-right:5%; white-space: nowrap; ">图书作者: </label>
 
 													<input type="text" class="form-control" id="newauthor">
 												</div>
 												<div class="mb-3">
 													<label for="message-text" class="col-form-label"
-														style="margin-right:5%;">图书页数: </label>
+														style="margin-right:5%; white-space: nowrap; ">图书页数: </label>
 
 													<input type="text" class="form-control" id="newpage">
 												</div>
 												<div class="mb-3">
 													<label for="message-text" class="col-form-label"
-														style="margin-right:5%;">收费情况: </label>
+														style="margin-right:5%;white-space: nowrap; ">收费情况: </label>
 
 													<input type="text" class="form-control" id="newper">
 												</div>
+												<div class="mb-3">
+													<label for="message-text" class="col-form-label"
+														style="margin-right:5%;white-space: nowrap; ">图书内容: </label>
+
+													<input type="text" class="form-control" id="newcontent">
+												</div>
+
+												<div class="control-group">
+													<label class="control-label" for="FileUpload1">上传图书封面</label>
+													<div class="controls">
+														<input class="input-file uniform_on" id="FileUpload1"
+															name="FileUpload1" type="file">
+													</div>
+												</div>
+
+
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary"
 														data-dismiss="modal">关闭</button>
