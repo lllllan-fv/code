@@ -9,9 +9,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * @Author 三更  B站： https://space.bilibili.com/663528522
- */
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

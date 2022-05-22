@@ -19,14 +19,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="readerindex.html" id="indexbtn">首页 <span class="sr-only">(current)</span></a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">首页 <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#"id="classifybtn">分类检索</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">分类检索</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">意见中心</a>
+                <a class="nav-link" href="#"id="opinionbtn">意见中心</a>
               </li>
           </ul>
 
@@ -39,17 +39,17 @@
         </div>
       </nav>
       <div class="content">
-        <div class="list-group">
+        <div class="list-group" id="category_list">
             <h5>分类检索</h5>
-            <a href="#" class="list-group-item list-group-item-action">A：马克思主义、列宁主义、毛泽东思想、邓小平理论</a>
-            <a href="#" class="list-group-item list-group-item-action">B：哲学、宗教</a>
-            <a href="#" class="list-group-item list-group-item-action">C：社会科学总论</a>
-            <a href="#" class="list-group-item list-group-item-action">D：政治、法律</a>
-            <a href="#" class="list-group-item list-group-item-action">E：军事</a>
+            <a id="A" href="#" class="list-group-item list-group-item-action active">A：马克思主义、列宁主义、毛泽东思想、邓小平理论</a>
+            <a id="B" href="#" class="list-group-item list-group-item-action">B：哲学、宗教</a>
+            <a id="C" href="#" class="list-group-item list-group-item-action">C：社会科学总论</a>
+            <a id="D" href="#" class="list-group-item list-group-item-action">D：政治、法律</a>
+            <a id="E" href="#" class="list-group-item list-group-item-action" onclick="typeClick()">E：军事</a>
             <a href="#" class="list-group-item list-group-item-action">F：经济</a>
             <a href="#" class="list-group-item list-group-item-action">G：文化、科学、教育、体育</a>
             <a href="#" class="list-group-item list-group-item-action">H：语言、文字</a>
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">I：文学</a>
+            <a href="#" class="list-group-item list-group-item-action" >I：文学</a>
             <a href="#" class="list-group-item list-group-item-action">J：艺术</a>
             <a href="#" class="list-group-item list-group-item-action">K：历史、地理</a>
             <a href="#" class="list-group-item list-group-item-action">N：自然科学总论</a>
@@ -65,7 +65,7 @@
             <a href="#" class="list-group-item list-group-item-action">Z：综合性图书</a>
           </div>
           <div class="mainbar">
-          <div class="row row-cols-2 row-cols-md-4">
+          <div id="booklist" class="row row-cols-2 row-cols-md-4" >
             <div class="col mb-4">
               <div class="card h-100">
                 <img src="../static/img/testbook.png" class="card-img-top" alt="...">
@@ -149,7 +149,12 @@
             </ul>
           </nav>
       </div>
+     
+    </script>
     </div>
 </body>
 <script src="../src/jquery.min.js"></script>
+<script src="../src/bootstrap.js"></script>
+<script src="../src/classifySearch.js"></script>
+<script src="../src/navbar.js"></script>
 </html>
